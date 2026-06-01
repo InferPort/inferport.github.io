@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "@fontsource/geist-sans/100.css";
+@import "@fontsource/geist-sans/200.css";
+@import "@fontsource/geist-sans/300.css";
+@import "@fontsource/geist-sans/400.css";
+@import "@fontsource/geist-sans/500.css";
+@import "@fontsource/geist-sans/600.css";
+@import "@fontsource/geist-sans/700.css";
+@import "@fontsource/geist-sans/800.css";
+@import "@fontsource/geist-sans/900.css";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";
+@import "@fontsource/geist-mono/700.css";
+
+@theme {
+  --color-brand-50: #e6f0f1;
+  --color-brand-100: #b3d3d6;
+  --color-brand-200: #80b6bb;
+  --color-brand-300: #4d99a0;
+  --color-brand-400: #26858e;
+  --color-brand-500: #2daa9e;
+  --color-brand-600: #238c82;
+  --color-brand-700: #1a6e66;
+  --color-brand-800: #124f49;
+  --color-brand-900: #0a312d;
+
+  --color-accent: #f0d103;
+  --color-accent-50: #fef9d6;
+  --color-accent-100: #fdf0a8;
+  --color-accent-200: #fbe67a;
+  --color-accent-300: #f7d94d;
+  --color-accent-400: #f4d026;
+  --color-accent-500: #f0d103;
+  --color-accent-600: #d4b502;
+  --color-accent-700: #a88f02;
+  --color-accent-800: #7c6901;
+  --color-accent-900: #504400;
+
+  --color-surface: #0d1517;
+  --color-surface-elevated: #162326;
+  --color-surface-hover: #1e2e32;
+  --color-border: #1e2e32;
+  --color-ink: #e8edee;
+  --color-ink-secondary: #94a6aa;
+
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink-secondary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: rgba(45, 170, 158, 0.3);
+    color: var(--color-ink);
+  }
+
+  * {
+    scrollbar-color: var(--color-surface-hover) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+@utility container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility gradient-mask {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up-scale {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes fade-in-blur {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.animate-on-scroll.visible {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-on-scroll.visible.stagger-scale {
+  animation: fade-up-scale 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-on-scroll.visible.animate-blur {
+  animation: fade-in-blur 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .animate-on-scroll.visible {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

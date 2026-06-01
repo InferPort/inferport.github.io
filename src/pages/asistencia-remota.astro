@@ -1,0 +1,114 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Navbar from "@/components/Navbar.astro"
+import Footer from "@/components/Footer.astro"
+import ServiceHero from "@/components/ServiceHero.astro"
+import ServiceCta from "@/components/ServiceCta.astro"
+import Section from "@/components/Section.astro"
+import {
+  Download,
+  Shield,
+  RefreshCw,
+  Zap,
+  Mail,
+  BookOpen,
+  Wifi,
+  Lock,
+  Search,
+  Monitor,
+  HeartHandshake,
+} from "lucide-react"
+---
+
+<BaseLayout
+  title="Asistencia Remota Profesional — InferPort"
+  description="Soporte técnico remoto rápido y seguro en Colombia. Eliminación de malware, instalación de software y optimización del sistema sin salir de casa."
+>
+  <Navbar />
+
+  <main>
+    <ServiceHero
+      variant="none"
+      badge="Soporte técnico remoto"
+      title='Soporte técnico <span class="text-brand-400">remoto y rápido</span>'
+      subtitle="Te ayudamos sin salir de casa. Conexión segura, solución express. Recupera el control de tu equipo en minutos."
+      features={[
+        { icon: Download, text: "Instalación y actualización de software" },
+        { icon: Shield, text: "Eliminación de malware y virus" },
+        { icon: RefreshCw, text: "Optimización del sistema (Windows, macOS, Linux)" },
+        { icon: Zap, text: "Soporte técnico remoto rápido" },
+        { icon: Mail, text: "Configuración de correo y herramientas ofimáticas" },
+        { icon: BookOpen, text: "Asistencia con plataformas educativas y laborales" },
+        { icon: Wifi, text: "Configuración de redes domésticas y VPN" },
+        { icon: Lock, text: "Respaldo y recuperación de información" },
+      ]}
+      ctaText="Solicitar asistencia remota"
+    />
+
+    <Section>
+      <Fragment slot="title">
+        ¿Cómo <span class="text-brand-400">funciona</span>?
+      </Fragment>
+      <Fragment slot="subtitle">
+        Conectamos de forma segura, solucionamos y listo. Sin complicaciones ni desplazamientos.
+      </Fragment>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <Search class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 01
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Contacto</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Nos escribes por WhatsApp o llamada y nos cuentas el problema. Programamos la conexión.
+          </p>
+        </div>
+
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0.12s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <Monitor class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 02
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Conexión segura</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Te envías un enlace cifrado, compartes pantalla y empezamos a trabajar. Tú siempre tienes el control.
+          </p>
+        </div>
+
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0.24s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <HeartHandshake class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 03
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Solución express</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Resolvemos el problema en la misma sesión o te damos seguimiento hasta que quede funcionando.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <ServiceCta
+      title="¿Necesitas ayuda con tu computador?"
+      text="No importa dónde estés. Conectamos remoto, diagnosticamos y resolvemos rápido. Primera asesoría sin costo."
+    />
+  </main>
+
+  <Footer />
+</BaseLayout>

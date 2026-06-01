@@ -1,0 +1,45 @@
+---
+import Section from "./Section.astro"
+import { ReactLight } from "./ui/svgs/reactLight.tsx"
+import { Nodejs } from "./ui/svgs/nodejs.tsx"
+import { Typescript } from "./ui/svgs/typescript.tsx"
+import { Python } from "./ui/svgs/python.tsx"
+import { Docker } from "./ui/svgs/docker.tsx"
+import { Linux } from "./ui/svgs/linux.tsx"
+import { AwsLight } from "./ui/svgs/awsLight.tsx"
+import { Postgresql } from "./ui/svgs/postgresql.tsx"
+import { MongodbIconLight } from "./ui/svgs/mongodbIconLight.tsx"
+import { Git } from "./ui/svgs/git.tsx"
+
+const techs = [
+  { component: ReactLight, name: "React" },
+  { component: Nodejs, name: "Node.js" },
+  { component: Typescript, name: "TypeScript" },
+  { component: Python, name: "Python" },
+  { component: Docker, name: "Docker" },
+  { component: Linux, name: "Linux" },
+  { component: AwsLight, name: "AWS" },
+  { component: Postgresql, name: "PostgreSQL" },
+  { component: MongodbIconLight, name: "MongoDB" },
+  { component: Git, name: "Git" },
+]
+---
+
+<Section>
+  <Fragment slot="title">
+    Tecnologías que <span class="text-brand-400">dominamos</span>
+  </Fragment>
+  <Fragment slot="subtitle">
+    Trabajamos con herramientas modernas y robustas para ofrecer soluciones de alto nivel.
+  </Fragment>
+
+  <div class="grid grid-cols-5 md:grid-cols-10 gap-6 md:gap-8 items-center justify-items-center text-ink-secondary">
+    {techs.map((tech) => (
+      <tech.component
+        class="h-5 md:h-6 w-auto hover:text-brand-400 hover:scale-110 transition-all duration-300"
+        className="h-5 md:h-6 w-auto hover:text-brand-400 hover:scale-110 transition-all duration-300"
+        title={tech.name}
+      />
+    ))}
+  </div>
+</Section>

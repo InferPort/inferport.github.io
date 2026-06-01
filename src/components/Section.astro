@@ -1,0 +1,21 @@
+---
+const { id } = Astro.props
+---
+
+<section {id} class="container py-24 md:py-32">
+  <div class="grid gap-3 animate-on-scroll">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-ink text-balance">
+      {Astro.slots.has("title") && <slot name="title" />}
+    </h2>
+    {Astro.slots.has("subtitle") && (
+      <p class="text-lg text-ink-secondary max-w-[65ch] text-balance">
+        <slot name="subtitle" />
+      </p>
+    )}
+  </div>
+  {Astro.slots.has("default") && (
+    <div class="mt-12">
+      <slot />
+    </div>
+  )}
+</section>

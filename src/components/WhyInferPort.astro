@@ -1,0 +1,15 @@
+---
+import Section from "./Section.astro"
+import { StickyStack } from "./StickyStack.tsx"
+---
+
+<Section>
+  <Fragment slot="title">
+    ¿Por qué <span class="text-brand-400">InferPort</span>?
+  </Fragment>
+  <Fragment slot="subtitle">
+    Razones por las que empresas y personas confían en nosotros para sus proyectos tecnológicos.
+  </Fragment>
+
+  <StickyStack client:load />
+</Section>

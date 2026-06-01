@@ -1,0 +1,78 @@
+---
+import "@/styles/global.css"
+
+export interface Props {
+  title?: string
+  description?: string
+  ogImage?: string
+}
+
+const {
+  title = "InferPort — Desarrollo y soporte técnico profesional",
+  description = "Expertos en desarrollo de software, infraestructura tecnológica y asistencia remota desde Cali, Colombia.",
+  ogImage = "/images/og.png",
+} = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d1517" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="canonical" href="https://inferport.co" />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "InferPort",
+      description: "Servicios de soporte técnico, programación y desarrollo de software.",
+      url: "https://inferport.co",
+      telephone: "+57 323 612 3894",
+      email: "info@inferport.co",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Cali",
+        addressRegion: "Valle del Cauca",
+        addressCountry: "CO",
+      },
+    })} />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible")
+              observer.unobserve(entry.target)
+            }
+          })
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+      )
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+          observer.observe(el)
+        })
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Navbar from "@/components/Navbar.astro"
+import Footer from "@/components/Footer.astro"
+import ServiceHero from "@/components/ServiceHero.astro"
+import ServiceCta from "@/components/ServiceCta.astro"
+import Section from "@/components/Section.astro"
+import {
+  Monitor,
+  Cpu,
+  Network,
+  HardDrive,
+  Search,
+  Database,
+  Cable,
+  ShoppingCart,
+  ClipboardCheck,
+  Wrench,
+  HeartHandshake,
+} from "lucide-react"
+---
+
+<BaseLayout
+  title="Servicio Técnico Profesional — InferPort"
+  description="Mantenimiento, diagnóstico y reparación de equipos de cómputo en Cali, Colombia. Servicio técnico presencial con garantía y presupuesto sin compromiso."
+>
+  <Navbar />
+
+  <main>
+    <ServiceHero
+      variant="none"
+      badge="Servicio técnico profesional"
+      title='Reparación y mantenimiento de <span class="text-brand-400">equipos de cómputo</span>'
+      subtitle="Diagnosticamos, reparamos y optimizamos tu equipo con estándares profesionales. Presupuesto sin compromiso y servicio en Cali con cobertura en todo Colombia."
+      features={[
+        { icon: Monitor, text: "Mantenimiento preventivo y correctivo" },
+        { icon: Cpu, text: "Ensamble y cambio de componentes" },
+        { icon: Network, text: "Administración de redes LAN y WiFi" },
+        { icon: HardDrive, text: "Instalación y configuración de sistemas" },
+        { icon: Search, text: "Diagnóstico técnico gratuito" },
+        { icon: Database, text: "Migración de datos y backups" },
+        { icon: Cable, text: "Cableado estructurado" },
+        { icon: ShoppingCart, text: "Asesoría en compra de equipos" },
+      ]}
+      ctaText="Solicitar servicio técnico"
+    />
+
+    <Section>
+      <Fragment slot="title">
+        ¿Cómo <span class="text-brand-400">funciona</span>?
+      </Fragment>
+      <Fragment slot="subtitle">
+        Un proceso simple para que recuperes tu equipo sin complicaciones.
+      </Fragment>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <ClipboardCheck class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 01
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Diagnóstico</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Revisamos tu equipo a fondo e identificamos el problema. Te explicamos qué ocurre y cómo solucionarlo.
+          </p>
+        </div>
+
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0.12s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <Wrench class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 02
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Reparación</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Realizamos el trabajo con componentes de calidad y procedimientos profesionales. Tu equipo en las mejores manos.
+          </p>
+        </div>
+
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0.24s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <HeartHandshake class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 03
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Garantía</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Entregamos tu equipo funcionando al 100% con garantía en el servicio prestado. Sin sorpresas.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <ServiceCta
+      title="¿Tu equipo necesita atención?"
+      text="Agenda un diagnóstico gratuito y te cotizamos la solución sin compromiso. Respondemos en menos de 24 horas."
+    />
+  </main>
+
+  <Footer />
+</BaseLayout>

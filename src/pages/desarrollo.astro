@@ -1,0 +1,116 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Navbar from "@/components/Navbar.astro"
+import Footer from "@/components/Footer.astro"
+import ServiceHero from "@/components/ServiceHero.astro"
+import ServiceCta from "@/components/ServiceCta.astro"
+import TechStack from "@/components/TechStack.astro"
+import Section from "@/components/Section.astro"
+import {
+  Terminal,
+  Database,
+  Server,
+  Globe,
+  Palette,
+  GitBranch,
+  Zap,
+  Lightbulb,
+  Search,
+  Rocket,
+  HeartHandshake,
+} from "lucide-react"
+---
+
+<BaseLayout
+  title="Programación & Desarrollo de Software — InferPort"
+  description="APIs, microservicios, software a la medida y administración de servidores Linux. Soluciones digitales escalables desde Cali, Colombia."
+>
+  <Navbar />
+
+  <main>
+    <ServiceHero
+      badge="Desarrollo de software profesional"
+      title='<span class="text-brand-400">Software a la medida</span> para tu negocio'
+      subtitle="Creamos APIs, automatizaciones y soluciones digitales robustas y escalables. Te acompañamos desde la idea hasta la implementación."
+      features={[
+        { icon: Terminal, text: "APIs REST y GraphQL" },
+        { icon: Database, text: "Bases de datos SQL y NoSQL" },
+        { icon: Server, text: "Administración de servidores VPS y Linux" },
+        { icon: Globe, text: "Desarrollo web full-stack (frontend + backend)" },
+        { icon: Palette, text: "UI/UX y diseño de interfaces" },
+        { icon: GitBranch, text: "Integraciones con APIs de terceros" },
+        { icon: Zap, text: "Automatización de procesos" },
+        { icon: Lightbulb, text: "Consultoría técnica y arquitectura" },
+      ]}
+      ctaText="Solicitar cotización"
+    />
+
+    <Section>
+      <Fragment slot="title">
+        ¿Cómo <span class="text-brand-400">desarrollamos</span>?
+      </Fragment>
+      <Fragment slot="subtitle">
+        Metodología ágil y comunicación constante para entregar resultados que superen expectativas.
+      </Fragment>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <Search class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 01
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Descubrimiento</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Entendemos tu negocio, tus objetivos y definimos juntos el alcance del proyecto.
+          </p>
+        </div>
+
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0.12s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <Rocket class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 02
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Construcción</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Desarrollamos con entregas frecuentes para que veas el progreso en tiempo real.
+          </p>
+        </div>
+
+        <div
+          class="relative flex flex-col items-center text-center animate-on-scroll stagger-scale"
+          style="animation-delay: 0.24s"
+        >
+          <div class="w-20 h-20 rounded-full bg-brand-500/5 flex items-center justify-center mb-5 border border-brand-500/20">
+            <HeartHandshake class="w-8 h-8 text-brand-400" />
+          </div>
+          <span class="text-[11px] font-mono uppercase tracking-[0.2em] text-brand-400 mb-3">
+            Paso 03
+          </span>
+          <h3 class="text-lg font-semibold text-ink mb-2">Soporte continuo</h3>
+          <p class="text-sm text-ink-secondary leading-relaxed max-w-xs">
+            Desplegamos la solución y te acompañamos con mantenimiento y mejoras post-lanzamiento.
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <TechStack />
+
+    <ServiceCta
+      title="¿Tienes un proyecto en mente?"
+      text="Cuéntanos tu idea y te presentamos una propuesta técnica con alcance, tiempos y presupuesto claro. Sin compromiso."
+    />
+  </main>
+
+  <Footer />
+</BaseLayout>

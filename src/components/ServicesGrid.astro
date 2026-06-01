@@ -1,0 +1,76 @@
+---
+import Section from "./Section.astro"
+import { Wrench, Code, Shield, ArrowRight } from "lucide-react"
+
+const services = [
+  {
+    icon: Wrench,
+    title: "Servicio Técnico",
+    description:
+      "Mantenimiento, reparación y optimización de equipos de cómputo. Presencial en Cali con diagnóstico gratuito.",
+    href: "/servicio-tecnico/",
+    gradient: "from-brand-500/10 via-brand-500/5 to-transparent",
+    border: "border-brand-500/20",
+    iconBg: "bg-brand-500/10",
+  },
+  {
+    icon: Code,
+    title: "Programación & Desarrollo",
+    description:
+      "APIs, microservicios, software a la medida y administración de servidores. Soluciones digitales escalables.",
+    href: "/desarrollo/",
+    gradient: "from-purple-500/10 via-purple-500/5 to-transparent",
+    border: "border-purple-500/20",
+    iconBg: "bg-purple-500/10",
+  },
+  {
+    icon: Shield,
+    title: "Asistencia Remota",
+    description:
+      "Soporte técnico remoto rápido y seguro. Eliminación de malware, instalación de software y optimización.",
+    href: "/asistencia-remota/",
+    gradient: "from-amber-500/10 via-amber-500/5 to-transparent",
+    border: "border-amber-500/20",
+    iconBg: "bg-amber-500/10",
+  },
+]
+---
+
+<Section id="servicios">
+  <Fragment slot="title">
+    Servicios <span class="text-brand-400">profesionales</span>
+  </Fragment>
+  <Fragment slot="subtitle">
+    Ofrecemos soluciones integrales de tecnología para empresas y personas en Colombia.
+    Elige el servicio que necesitas y conoce todos los detalles.
+  </Fragment>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {services.map((service, i) => (
+      <a
+        href={service.href}
+        class="group block relative overflow-hidden rounded-2xl border {service.border} bg-gradient-to-b {service.gradient} p-8 md:p-10 animate-on-scroll animate-blur hover:border-brand-500/40 transition-all duration-500"
+        style={`animation-delay: ${i * 0.1}s`}
+      >
+        <div
+          class="w-14 h-14 rounded-xl {service.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500"
+        >
+          <service.icon class="w-7 h-7 text-brand-400" />
+        </div>
+
+        <h3 class="text-xl font-semibold text-ink mb-3">{service.title}</h3>
+
+        <p class="text-sm text-ink-secondary leading-relaxed mb-6">
+          {service.description}
+        </p>
+
+        <div
+          class="inline-flex items-center gap-2 text-sm font-medium text-brand-400 group-hover:gap-3 transition-all duration-300"
+        >
+          Ver detalle
+          <ArrowRight class="w-4 h-4" />
+        </div>
+      </a>
+    ))}
+  </div>
+</Section>
